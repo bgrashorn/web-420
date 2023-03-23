@@ -1,0 +1,24 @@
+{
+    "findAllComposers": [
+        {
+        "composerId": 1000,
+        "firstName": "Ludwig",
+        "lastName": "Beethoven"
+    },
+    {
+        "composerId": 1005,
+        "firstName": "Wolfgang",
+        "lastName": "Mozart"
+    },
+    {
+        "composerId": 1150,
+        "firstName": "Johann",
+        "lastName": "Bach"
+    },
+    {
+        "composerId": 1203,
+        "firstName": "George",
+        "lastName": "Handel"
+    }
+    ]
+}
