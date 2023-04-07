@@ -17,10 +17,24 @@ const http = require('http');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 const mongoose = require('mongoose');
+const composerAPI = require("./routes/grashorn-composer-routes.js");
 
 const app = express();
 
+const conn = "mongodb+srv://web420_user:s3cret@bellevueuniversity.3x5untt.mongodb.net/web420DB"; //Our MongoDB Server
+
 app.set("port", process.env.PORT || 3000);
+
+mongoose 
+    .connect(conn)
+    .then(() => {
+        console.log(
+            "Connection to MongoDB was successful\n If you see this message it means you were able to connect to your MongoDB Atlas cluster"
+        );
+    })
+    .catch((err) => {
+        console.log("MongoDB error: " + err.message);
+    });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -40,6 +54,7 @@ const options = {
 const openapiSpecification = swaggerJsdoc(options);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+app.use("/api", composerAPI);
 
 http.createServer(app).listen(app.get("port"), function () {
     console.log(`Application started and listening on port ${app.get("port")}`);

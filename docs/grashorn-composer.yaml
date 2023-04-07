@@ -6,7 +6,7 @@ paths:
   /composers:
     get:
       tags:
-        - Compsoers
+        - Composers
       description: API for returning a list of Composers
       summary: returns a list of Composers
       responses:
@@ -46,7 +46,7 @@ paths:
     get:
       tags:
         - Composers
-      description: API for returning a singler composer from MongoDB.
+      description: API for returning a single composer from MongoDB.
       summary: returns a single composer.
       parameters:
         - name: id
