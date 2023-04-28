@@ -20,6 +20,7 @@ const mongoose = require('mongoose');
 const composerAPI = require("./routes/grashorn-composer-routes.js");
 const personAPI = require("./routes/grashorn-person-route.js")
 const userAPI = require("./routes/grashorn-session-routes.js");
+const customerAPI = require("./routes/grashorn-node-shopper-routes.js");
 
 const app = express();
 
@@ -59,6 +60,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 app.use("/api", composerAPI);
 app.use("/api", personAPI);
 app.use("/api", userAPI);
+app.use("/api", customerAPI);
 
 http.createServer(app).listen(app.get("port"), function () {
     console.log(`Application started and listening on port ${app.get("port")}`);
